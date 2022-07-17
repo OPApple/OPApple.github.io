@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.3e6d0737.css",
-    "main.js": "/static/js/main.47ac6d89.js",
-    "static/js/787.13d76ca7.chunk.js": "/static/js/787.13d76ca7.chunk.js",
-    "index.html": "/index.html",
-    "main.3e6d0737.css.map": "/static/css/main.3e6d0737.css.map",
-    "main.47ac6d89.js.map": "/static/js/main.47ac6d89.js.map",
-    "787.13d76ca7.chunk.js.map": "/static/js/787.13d76ca7.chunk.js.map"
+    "main.css": "/opapple.github.io/static/css/main.3e6d0737.css",
+    "main.js": "/opapple.github.io/static/js/main.7834cad0.js",
+    "static/js/787.13d76ca7.chunk.js": "/opapple.github.io/static/js/787.13d76ca7.chunk.js",
+    "index.html": "/opapple.github.io/index.html",
+    "main.3e6d0737.css.map": "/opapple.github.io/static/css/main.3e6d0737.css.map",
+    "main.7834cad0.js.map": "/opapple.github.io/static/js/main.7834cad0.js.map",
+    "787.13d76ca7.chunk.js.map": "/opapple.github.io/static/js/787.13d76ca7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3e6d0737.css",
-    "static/js/main.47ac6d89.js"
+    "static/js/main.7834cad0.js"
   ]
 }
