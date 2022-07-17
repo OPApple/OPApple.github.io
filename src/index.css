@@ -1,3 +1,64 @@
-.App{
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One');
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+.app{
   text-align: center;
 }
+
+.app input{
+  border-radius: 25px;
+  height: 25px;
+  border-color: black;
+  font-family: system-ui;
+  transition-duration: 340ms;
+}
+
+.app input:focus{
+  border-radius: 0px;
+  border-color: black;
+}
+
+.app p{
+  font-size: 2rem;
+  font-family: fredoka One;
+
+}
+
+#rain{
+  width: 100%;
+  height: 100%;
+}
+
+hr{
+  width: 50px;
+  border-color: transparent;
+  border-right-color: rgba(255, 255, 255, 0.7);
+  border-right-width: 50px;
+  position: absolute;
+  bottom: 100%;
+  transform-origin: 100% 50%;
+  animation-name: rain;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rain {
+  from {
+   transform: rotate(90deg) translateX(0);
+  }
+ 
+  to {
+   transform: rotate(90deg) translateX(calc(110vh + 20px));
+  }
+ }
+

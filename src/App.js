@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-
+import { Clouds } from './components/Themes';
+import { Clear } from './components/Themes';
+import { Rain } from './components/Themes';
+import droplets from './components/Themes';
 
 function App() {
 
   
- 
-  
+
+  let bruh;
+  let dropletB;
+
   
   const [data, setData] = useState({});
   const [location, setLocation] = useState('')
@@ -16,34 +21,43 @@ function App() {
     if (event.key === 'Enter'){
       axios.get(url).then((response) => {
         setData(response.data)
+        bruh = true
+        console.log(bruh)
         
       })
       setLocation('')
       
     }
   }
-
+  
   
   function changeTheme (weather){
     if (weather == null){
       console.log(null)
     }else{
-
-      console.log(weather)
+      
       if(weather === "Clouds"){
-        document.getElementsByTagName('body')[0].style.backgroundColor = 'gray'
+        dropletB = false
+        droplets(dropletB)
+        Clouds()
+        dropletB = false
       }else if (weather === "Clear"){
-        document.getElementsByTagName('body')[0].style.backgroundColor = 'yellow'
+        dropletB = false
+        droplets(dropletB)
+        Clear()
+        dropletB = false
       }else if (weather === "Rain"){
-        document.getElementsByTagName('body')[0].style.backgroundColor = 'blue'
+        Rain()
+        dropletB = true
+        droplets(dropletB)
       }
-
+      
     }
     
     
   }
   
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e1368e70a9bea25ae8226e3fc63d7be0`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=e1368e70a9bea25ae8226e3fc63d7be0`
   
   
   //Get the date and adjust it using the timezone of location
@@ -52,14 +66,32 @@ function App() {
   
   const UTCOffset = (data.timezone - 10800) / 3600;
   hours = hours + UTCOffset
-
+  
   var x = data.weather ? data.weather[0].main : null
   
-  console.log(x)
-  changeTheme(x)
+  
+  const rainCheck = () =>{
+
+    if(bruh != true){
+      bruh = false
+      console.log("bruh")
+      changeTheme(x)
+
+    }
+  }
+
+
+  rainCheck()
+  
+  
 
   return (
     <div id='App' className="app">
+
+      <div className='city'>
+        <p>{data.name}</p>
+      </div>
+
       <div className="search">
         <input
           value={location}
@@ -70,10 +102,13 @@ function App() {
       </div>
       <div className="container">
 
+        <div className='temp'>
+          {data.main ? <p>{Math.round(data.main.temp)}°C</p> : null}
+        </div>
 
           <div className="description">
-            {data.weather ? <p>{data.weather[0].main}</p> : null}
           </div>
+            {data.weather ? <p>{data.weather[0].main}</p> : null}
         </div>
 
     </div>
